@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'posts/new'
+  post 'posts/create'
+  get 'posts/index'
+  get 'posts/:id/show' => "posts#show"
   root "home#index"
   get "home/selector"
   get "home/event"

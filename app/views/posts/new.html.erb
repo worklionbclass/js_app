@@ -1,0 +1,16 @@
+<!--만약 flash[:error]가 있다면? 저장이 실패했다면?-->
+<% if flash[:error].present? %>
+    <div style="color: red;">
+        <!--에러 메시지들을 출력해라!-->
+        <%= flash[:error].join("<br>") %>
+    </div>
+<% end %>
+
+<form action="/posts/create" method="POST">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    글 : <input type="text" name="title">
+    <br>
+    내용 : <textarea name="content"></textarea>
+    <br>
+    <button type="submit">제출</button>
+</form>
